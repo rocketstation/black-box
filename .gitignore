@@ -1,0 +1,11 @@
+# Folders
+.vscode
+build
+lib
+node_modules
+tmp
+
+# Files
+.DS_Store
+npm-debug.log
+

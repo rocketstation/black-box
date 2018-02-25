@@ -1,0 +1,46 @@
+{
+  "author": "Rocket Station <contact@rstation.io> (https://rstation.io)",
+  "contributors": [
+    "Oleksii Bilous <oleksiibilous@rstation.io> (https://rstation.io)",
+    "Oleksii Pysanko <oleksiipysanko@rstation.io> (https://rstation.io)"
+  ],
+  "description": "React Component",
+  "devDependencies": {
+    "babel-cli": "6",
+    "babel-core": "6",
+    "babel-eslint": "8",
+    "babel-plugin-transform-object-rest-spread": "6",
+    "babel-preset-env": "1",
+    "babel-preset-minify": "0.3",
+    "eslint": "4",
+    "eslint-config-standard": "11",
+    "eslint-plugin-import": "2",
+    "eslint-plugin-node": "6",
+    "eslint-plugin-promise": "3",
+    "eslint-plugin-standard": "3",
+    "jest": "22"
+  },
+  "engines": {
+    "node": ">=9"
+  },
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "name": "@rocketstation/black-box",
+  "peerDependencies": {
+    "fela": "6",
+    "react": "16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rocketstation/black-box.git"
+  },
+  "scripts": {
+    "build": "rm -rf lib && babel src -d lib --ignore *.test.js --fix",
+    "lint": "eslint src --ignore-pattern *.test.js",
+    "test": "jest src"
+  },
+  "version": "1.0.0"
+}
