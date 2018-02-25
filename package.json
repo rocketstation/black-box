@@ -42,5 +42,5 @@
     "lint": "eslint src --ignore-pattern *.test.js",
     "test": "jest src"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
