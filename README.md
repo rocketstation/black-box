@@ -237,7 +237,7 @@ BlackBox([renderer])
 
 creates & returns a configured instance of Black Box. If the custom [renderer](http://fela.js.org/docs/api/fela/Renderer.html) is not provided, creates default [renderer](http://fela.js.org/docs/api/fela/createRenderer.html) without config automatically.
 
-```
+```javascript
 const $ = BlackBox()
 
 $({
