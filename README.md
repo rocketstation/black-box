@@ -158,7 +158,7 @@ const MyComponent = ({
     ...props
   }
 
-  return <Component {...props}>{children}</Component>
+  return <Component {...propsNext}>{children}</Component>
 }
 ```
 Black Box
@@ -258,4 +258,5 @@ creates & returns React elements. All keys are optional
 
 ### License
 Black Box is licensed under the [MIT License](http://opensource.org/licenses/MIT)
+
 Created by [RocketStation](http://rstation.io)
