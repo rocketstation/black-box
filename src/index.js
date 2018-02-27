@@ -16,12 +16,13 @@ export default (renderer = createRenderer()) => (...args) => {
 
   const {
     b: {
+      children,
       className,
       internal = {},
       ...b
     } = {},
     p,
-    s,
+    s = children,
   } = config || {}
 
   const styles = []
