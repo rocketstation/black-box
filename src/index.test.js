@@ -41,6 +41,10 @@ test('parses `s` key from config to element’s children', () => {
   expect($({ s })).toMatchObject({ children: [s] })
 })
 
+test('spreads `s` key from config to element’s children if `s` is array', () => {
+  expect($({ s: ['foo', 'bar'] })).toMatchObject({ children: ['foo', 'bar'] })
+})
+
 test('parses `b` key from config to element’s props', () => {
   const b = { foo: 'bar' }
 

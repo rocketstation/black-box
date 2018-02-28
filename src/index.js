@@ -14,6 +14,8 @@ export default (renderer = createRenderer()) => (...args) => {
       break
   }
 
+  if (type == null) type = 'div'
+
   const {
     b: {
       children,
@@ -33,5 +35,5 @@ export default (renderer = createRenderer()) => (...args) => {
 
   if (styles.length > 0) b.className = styles.join(' ')
 
-  return createElement(type || 'div', b, s)
+  return Array.isArray(s) ? createElement(type, b, ...s) : createElement(type, b, s)
 }
