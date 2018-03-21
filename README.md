@@ -197,7 +197,7 @@ $({
 
 Black Box is based on React's [`createElement`](https://reactjs.org/docs/react-api.html#createelement) method. However, Black Box creates `div` elements by default
 
-### Advanced Usage
+## Advanced Usage
 1. Config
 
 service/renderer.js
@@ -230,7 +230,7 @@ module.exports = {
 }
 ```
 
-### API
+## API
 ```javascript
 BlackBox([renderer])
 ```
@@ -256,7 +256,7 @@ creates & returns React elements. All keys are optional
 - **s** - stands for structure. Accepts any valid React children and passes them to React's `createElement` method
 
 
-### License
+## License
 Black Box is licensed under the [MIT License](http://opensource.org/licenses/MIT)
 
 Created by [RocketStation](http://rstation.io)
