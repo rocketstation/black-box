@@ -4,6 +4,11 @@
     "Oleksii Bilous <oleksiibilous@rstation.io> (https://rstation.io)",
     "Oleksii Pysanko <oleksiipysanko@rstation.io> (https://rstation.io)"
   ],
+  "dependencies": {
+    "@rocketstation/check-if-type": "1",
+    "fela": "6",
+    "react": "16"
+  },
   "description": "is based on React & Fela. It combines behavior, presentation, structure in one place & creates all-in-one components using only JS syntax",
   "devDependencies": {
     "@babel/cli": "7",
@@ -33,10 +38,6 @@
   "license": "MIT",
   "main": "lib/index.js",
   "name": "@rocketstation/black-box",
-  "dependencies": {
-    "fela": "6",
-    "react": "16"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rocketstation/black-box.git"
@@ -46,5 +47,5 @@
     "lint": "eslint src --fix --ignore-pattern *.test.js",
     "test": "jest src"
   },
-  "version": "2.0.0"
+  "version": "3.0.0"
 }

@@ -1,6 +1,6 @@
 # Black Box
 
-Black Box is a lightweight & powerful tool based on [React](https://github.com/facebook/react) & [Fela](https://github.com/rofrischmann/fela). It combines behavior, presentation, structure in one place & creates all-in-one components using only JS syntax
+Black Box is a lightweight & powerful tool based on [React](https://github.com/facebook/react) & [Fela](https://github.com/rofrischmann/fela). It combines behavior, presentation, structure in one place & creates all-in-one components using only JS syntax. It allows you to create custom tags
 
 ## Installation
 
@@ -18,19 +18,23 @@ npm i --save @rocketstation/black-box
 import React from 'react'
 import BlackBox from '@rocketstation/black-box'
 
-const $ = new BlackBox().render
+const bb = new BlackBox()
+
+const $ = bb.element
+const $box = (config) => bb.element('div', config)
+const $text = (config) => bb.element('span', config)
 
 const MyComponent = ({
   nameFirst,
   nameLast,
-}) => $({
+}) => $box({
   b: { onClick: () => window.location = 'https://github.com/rocketstation/black-box' },
   p: {
     color: 'blue',
     fontSize: `${24}px`,
     textAlign: 'center',
   },
-  s: `Hello ${nameFirst} ${nameLast}!`,
+  s: $text({ s: `Hello ${nameFirst} ${nameLast}!` }),
 })
 
 ReactDOM.render(
@@ -99,13 +103,13 @@ const Component = () => (
 
 with Black Box
 ```javascript
-const Component = () => $({
+const Component = () => $box({
   p: {
     display: 'flex',
     flexDirection: 'column',
   },
   s: [
-    $({
+    $box({
       p: {
         backgroundColor: 'red',
         flexShrink: 0,
@@ -113,14 +117,14 @@ const Component = () => $({
       },
       s: 'Header'
     }),
-    $({
+    $box({
       p: {
         backgroundColor: 'green',
         flexGrow: 1,
       },
       s: 'Body'
     }),
-    $({
+    $box({
       p: {
         backgroundColor: 'blue',
         flexShrink: 0,
@@ -183,7 +187,7 @@ Black Box is based on Fela's [`renderRule`](http://fela.js.org/docs/api/fela/Ren
 Unlike Fela's [`createComponent`](https://github.com/rofrischmann/fela/blob/master/packages/react-fela/docs/createComponent.md) method, which requires specifying props to pass them to the underlying DOM element, Black Box passes all props except those which were declared as internal
 
 ```javascript
-$({
+$box({
   b: {
     internal: {
       foo: 'This prop will be passed only to Fela’s `renderRule` method'
@@ -192,10 +196,6 @@ $({
   }
 })
 ```
-
-### React Diff
-
-Black Box is based on React's [`createElement`](https://reactjs.org/docs/react-api.html#createelement) method. However, Black Box creates `div` elements by default
 
 ## Advanced Usage
 1. Config
@@ -238,9 +238,9 @@ new BlackBox([renderer])
 creates & returns a configured instance of Black Box. If the custom [renderer](http://fela.js.org/docs/api/fela/Renderer.html) is not provided, creates default [renderer](http://fela.js.org/docs/api/fela/createRenderer.html) without config automatically.
 
 ```javascript
-const $ = new BlackBox().render
+const $ = new BlackBox().element
 
-$({
+$('div', {
   b: {
     internal: propsInternal,
     ...props
@@ -249,7 +249,7 @@ $({
   s: children,
 })
 ```
-creates & returns React elements. All keys are optional
+creates & returns React elements. All config keys are optional
 
 - **b** - stands for behavior. Accepts any valid React props and passes them to Fela's `renderRule` & React's `createElement` method. Internal props will be only passed to Fela's `renderRule`
 - **p** - stands for presentation. Accepts any valid [Fela rule](http://fela.js.org/docs/basics/Rules.html). If object passed, it will be converted into function automatically
