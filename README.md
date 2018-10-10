@@ -18,7 +18,7 @@ npm i --save @rocketstation/black-box
 import React from 'react'
 import BlackBox from '@rocketstation/black-box'
 
-const $ = BlackBox()
+const $ = new BlackBox().render
 
 const MyComponent = ({
   nameFirst,
@@ -215,7 +215,7 @@ service/black-box.js
 import BlackBox from '@rocketstation/black-box'
 import renderer from 'service/renderer'
 
-export default BlackBox(renderer)
+export default new BlackBox(renderer).render
 
 ```
 2. Autoimport
@@ -232,13 +232,13 @@ module.exports = {
 
 ## API
 ```javascript
-BlackBox([renderer])
+new BlackBox([renderer])
 ```
 
 creates & returns a configured instance of Black Box. If the custom [renderer](http://fela.js.org/docs/api/fela/Renderer.html) is not provided, creates default [renderer](http://fela.js.org/docs/api/fela/createRenderer.html) without config automatically.
 
 ```javascript
-const $ = BlackBox()
+const $ = new BlackBox().render
 
 $({
   b: {

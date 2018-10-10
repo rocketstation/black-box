@@ -1,16 +1,16 @@
 import { createRenderer } from 'fela'
 import { createElement } from 'react'
 
-import component from './index'
+import BlackBox from './index'
 
 jest.mock('fela')
 jest.mock('react')
 
 const renderer = createRenderer()
-const $ = component(renderer)
+const $ = new BlackBox(renderer).render
 
 it('uses default renderer if custom renderer is not provided', () => {
-  component()()
+  new BlackBox()
 
   expect(createRenderer).toBeCalled()
 })

@@ -1,9 +1,18 @@
 {
+  "env": {
+    "production": {
+      "presets": [
+        "minify"
+      ]
+    }
+  },
   "plugins": [
-    "transform-object-rest-spread"
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
+    "@babel/plugin-proposal-class-properties"
   ],
   "presets": [
-    "env",
-    "minify"
+    "@babel/preset-env"
   ]
 }

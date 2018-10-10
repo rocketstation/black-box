@@ -1,39 +1,45 @@
 import { createRenderer } from 'fela'
 import { createElement } from 'react'
 
-export default (renderer = createRenderer()) => (...args) => {
-  let type
-  let config
-
-  switch (args.length) {
-    case 1:
-      typeof args[0] === 'object' ? config = args[0] : type = args[0]
-      break
-    case 2:
-      [type, config] = args
-      break
+export default class {
+  constructor (renderer = createRenderer()) {
+    this.renderer = renderer
   }
 
-  if (type == null) type = 'div'
+  render = (...args) => {
+    let type
+    let config
 
-  const {
-    b: {
-      children,
-      className,
-      internal = {},
-      ...b
-    } = {},
-    p,
-    s = children,
-  } = config || {}
+    switch (args.length) {
+      case 1:
+        typeof args[0] === 'object' ? config = args[0] : type = args[0]
+        break
+      case 2:
+        [type, config] = args
+        break
+    }
 
-  const styles = []
+    if (type == null) type = 'div'
 
-  if (className) styles.push(className)
+    const {
+      b: {
+        children,
+        className,
+        internal = {},
+        ...b
+      } = {},
+      p,
+      s = children,
+    } = config || {}
 
-  if (typeof p === 'function' || typeof p === 'object') styles.push(renderer.renderRule(typeof p === 'function' ? p : () => p, { ...internal, ...b }))
+    const styles = []
 
-  if (styles.length > 0) b.className = styles.join(' ')
+    if (className) styles.push(className)
 
-  return Array.isArray(s) ? createElement(type, b, ...s) : createElement(type, b, s)
+    if (typeof p === 'function' || typeof p === 'object') styles.push(this.renderer.renderRule(typeof p === 'function' ? p : () => p, { ...internal, ...b }))
+
+    if (styles.length > 0) b.className = styles.join(' ')
+
+    return Array.isArray(s) ? createElement(type, b, ...s) : createElement(type, b, s)
+  }
 }
