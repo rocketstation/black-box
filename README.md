@@ -103,13 +103,13 @@ const Component = () => (
 
 with Black Box
 ```javascript
-const Component = () => $box({
+const Component = () => $(Page, {
   p: {
     display: 'flex',
     flexDirection: 'column',
   },
   s: [
-    $box({
+    $(Header, {
       p: {
         backgroundColor: 'red',
         flexShrink: 0,
@@ -117,14 +117,14 @@ const Component = () => $box({
       },
       s: 'Header'
     }),
-    $box({
+    $(Body, {
       p: {
         backgroundColor: 'green',
         flexGrow: 1,
       },
       s: 'Body'
     }),
-    $box({
+    $(Footer, {
       p: {
         backgroundColor: 'blue',
         flexShrink: 0,
@@ -215,7 +215,7 @@ service/black-box.js
 import BlackBox from '@rocketstation/black-box'
 import renderer from 'service/renderer'
 
-export default new BlackBox(renderer).render
+export default new BlackBox(renderer).element
 
 ```
 2. Autoimport
