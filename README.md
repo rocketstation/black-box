@@ -103,13 +103,13 @@ const Component = () => (
 
 with Black Box
 ```javascript
-const Component = () => $(Page, {
+const Component = () => $('div', {
   p: {
     display: 'flex',
     flexDirection: 'column',
   },
   s: [
-    $(Header, {
+    $('div', {
       p: {
         backgroundColor: 'red',
         flexShrink: 0,
@@ -117,14 +117,14 @@ const Component = () => $(Page, {
       },
       s: 'Header'
     }),
-    $(Body, {
+    $('div', {
       p: {
         backgroundColor: 'green',
         flexGrow: 1,
       },
       s: 'Body'
     }),
-    $(Footer, {
+    $('div', {
       p: {
         backgroundColor: 'blue',
         flexShrink: 0,
