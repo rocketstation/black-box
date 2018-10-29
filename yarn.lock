@@ -644,10 +644,10 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@rocketstation/check-if-type@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@rocketstation/check-if-type/-/check-if-type-1.0.3.tgz#24ec1ddf889d31b87c4af0fa5bc6ce94c26c0586"
-  integrity sha1-JOwd34idMbh8SvD6W8bOlMJsBYY=
+"@rocketstation/check-if-type@1":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@rocketstation/check-if-type/-/check-if-type-1.0.4.tgz#7884ce4341c967c76c5aeb3079f5cdf1faaabcc3"
+  integrity sha512-jRGb2LoZKFdpqChas0kfkXgZ+80PDQzycEmbivmdA4rpYq0envOk8zML+JIsC2rV725WS7pizw/MXkgOP0MUDA==
 
 abab@^2.0.0:
   version "2.0.0"
