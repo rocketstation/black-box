@@ -28,7 +28,7 @@ export default class {
     if (className) styles.push(className)
 
     if (p) {
-      const rules = combineRules([].concat(p).reduce((r, v) => {
+      const rules = combineRules(...[].concat(p).reduce((r, v) => {
         switch (true) {
           case isFn(v):
             r.push(v)
