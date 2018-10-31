@@ -1,6 +1,7 @@
 import { isFn, isObj } from '@rocketstation/check-if-type'
 
 import {
+  combineRules,
   createRenderer,
 } from 'fela'
 import {
@@ -26,8 +27,21 @@ export default class {
 
     if (className) styles.push(className)
 
-    if (isObj(p) || isFn(p)) {
-      styles.push(this.renderer.renderRule(isFn(p) ? p : () => p, {
+    if (p) {
+      const rules = combineRules([].concat(p).reduce((r, v) => {
+        switch (true) {
+          case isFn(v):
+            r.push(v)
+            break
+          case isObj(v):
+            r.push(() => v)
+            break
+        }
+
+        return r
+      }, []))
+
+      styles.push(this.renderer.renderRule(rules, {
         ...internal,
         ...b,
       }))

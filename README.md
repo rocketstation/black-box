@@ -182,7 +182,7 @@ const MyComponent = ({
 })
 ```
 ### Fela Diff
-Black Box is based on Fela's [`renderRule`](http://fela.js.org/docs/api/fela/Renderer.html) method. However, unlike [`renderRule`](http://fela.js.org/docs/api/fela/Renderer.html) method, Black Box accepts both functions and objects. All objects will be converted into functions automatically
+Black Box is based on Fela's [`renderRule`](http://fela.js.org/docs/api/fela/Renderer.html) method. However, unlike [`renderRule`](http://fela.js.org/docs/api/fela/Renderer.html) method, Black Box accepts both functions and objects. All objects will be converted into functions automatically. If Array is passed, all elements will be combined with `combineRule`
 
 Unlike Fela's [`createComponent`](https://github.com/rofrischmann/fela/blob/master/packages/react-fela/docs/createComponent.md) method, which requires specifying props to pass them to the underlying DOM element, Black Box passes all props except those which were declared as internal
 
@@ -245,14 +245,14 @@ $('div', {
     internal: propsInternal,
     ...props
   },
-  p: (rulesFn || rulesObj),
+  p: [...(rulesFn || rulesObj)],
   s: children,
 })
 ```
 creates & returns React elements. All config keys are optional
 
 - **b** - stands for behavior. Accepts any valid React props and passes them to Fela's `renderRule` & React's `createElement` method. Internal props will be only passed to Fela's `renderRule`
-- **p** - stands for presentation. Accepts any valid [Fela rule](http://fela.js.org/docs/basics/Rules.html). If object passed, it will be converted into function automatically
+- **p** - stands for presentation. Accepts any valid [Fela rule](http://fela.js.org/docs/basics/Rules.html). If object is passed, it will be converted into function automatically. If array is passed, it will combine all elements with `combineRules`
 - **s** - stands for structure. Accepts any valid React children and passes them to React's `createElement` method
 
 

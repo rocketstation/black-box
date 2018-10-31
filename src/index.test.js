@@ -1,4 +1,5 @@
 import {
+  combineRules,
   createRenderer
 } from 'fela'
 import {
@@ -138,4 +139,10 @@ it('passes Valid Fela Rule && merged config to `renderer.renderRule` if `p` key 
   })
 
   expect(renderer.renderRule).toBeCalledWith(expect.any(Function), bNext)
+})
+
+it('combines rules', () => {
+  $('div')
+
+  expect(combineRules).toBeCalled()
 })
