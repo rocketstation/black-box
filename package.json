@@ -1,36 +1,43 @@
 {
   "author": "Rocket Station <contact@rstation.io> (https://rstation.io)",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "Firefox ESR",
+    "Safari >= 9",
+    "last 2 iOS versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 FirefoxAndroid versions"
+  ],
   "contributors": [
     "Oleksii Bilous <oleksiibilous@rstation.io> (https://rstation.io)",
     "Oleksii Pysanko <oleksiipysanko@rstation.io> (https://rstation.io)"
   ],
   "dependencies": {
-    "@rocketstation/check-if-type": "1",
-    "fela": "6",
-    "react": "16"
+    "react": "16",
+    "react-fela": "10"
   },
-  "description": "is based on React & Fela. It combines behavior, presentation, structure in one place & creates all-in-one components using only JS syntax",
+  "description": "is based on React & Fela. It combines behavior, presentation, structure in one place",
   "devDependencies": {
     "@babel/cli": "7",
     "@babel/core": "7",
-    "@babel/plugin-proposal-class-properties": "7",
-    "@babel/plugin-proposal-decorators": "7",
-    "@babel/polyfill": "7",
     "@babel/preset-env": "7",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10",
-    "babel-jest": "23",
+    "babel-preset-env": "1",
     "babel-preset-minify": "0.5",
+    "cross-env": "5",
     "eslint": "5",
+    "eslint-config-prettier": "3",
     "eslint-config-standard": "12",
     "eslint-plugin-import": "2",
-    "eslint-plugin-node": "7",
+    "eslint-plugin-node": "8",
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
-    "jest": "23"
-  },
-  "engines": {
-    "node": ">=10"
+    "fela": "10",
+    "jest": "23",
+    "prettier": "1",
+    "react-test-renderer": "16"
   },
   "files": [
     "lib"
@@ -38,14 +45,9 @@
   "license": "MIT",
   "main": "lib/index.js",
   "name": "@rocketstation/black-box",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rocketstation/black-box.git"
-  },
   "scripts": {
-    "build": "rm -rf lib && BABEL_ENV=production babel src -d lib --ignore src/**/*.test.js",
-    "lint": "eslint src --fix --ignore-pattern *.test.js",
+    "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
     "test": "jest src"
   },
-  "version": "3.1.2"
+  "version": "4.0.0"
 }

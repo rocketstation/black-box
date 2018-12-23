@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div
+  className="a b test"
+  onClick={[Function]}
+>
+  <div
+    className="c"
+  />
+  <div>
+    Hello
+  </div>
+  <div>
+    World
+  </div>
+  <div
+    className="c"
+  />
+</div>
+`;

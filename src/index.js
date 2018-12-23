@@ -1,54 +1,25 @@
-import { isFn, isObj } from '@rocketstation/check-if-type'
+var React = require('react')
+var ReactFela = require('react-fela')
 
-import {
-  combineRules,
-  createRenderer,
-} from 'fela'
-import {
-  createElement,
-} from 'react'
+function create(type, props, children) {
+  return React.createElement.apply(void 0, [type, props].concat(children))
+}
 
-export default class {
-  constructor (renderer = createRenderer()) {
-    this.renderer = renderer
-  }
+module.exports = function(type, b, p) {
+  var childrenAmount = arguments.length - 3
+  var children = new Array(childrenAmount > 0 ? childrenAmount : 0)
 
-  element = (type, {
-    b: {
-      children,
-      className,
-      internal = {},
-      ...b
-    } = {},
-    p,
-    s = children,
-  } = {}) => {
-    const styles = []
+  for (var i = 0; i < childrenAmount; i++) children[i] = arguments[i + 3]
 
-    if (className) styles.push(className)
+  return p != null
+    ? React.createElement(ReactFela.FelaComponent, { style: p }, function(p) {
+        const props = b || {}
 
-    if (p) {
-      const rules = combineRules(...[].concat(p).reduce((r, v) => {
-        switch (true) {
-          case isFn(v):
-            r.push(v)
-            break
-          case isObj(v):
-            r.push(() => v)
-            break
-        }
+        props.className = [p.className, props.className]
+          .filter(Boolean)
+          .join(' ')
 
-        return r
-      }, []))
-
-      styles.push(this.renderer.renderRule(rules, {
-        ...internal,
-        ...b,
-      }))
-    }
-
-    if (styles.length > 0) b.className = styles.join(' ')
-
-    return Array.isArray(s) ? createElement(type, b, ...s) : createElement(type, b, s)
-  }
+        return create(type, props, children)
+      })
+    : create(type, b, children)
 }
