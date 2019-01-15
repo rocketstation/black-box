@@ -13,7 +13,7 @@ module.exports = function(type, b, p) {
 
   return p != null
     ? React.createElement(ReactFela.FelaComponent, { style: p }, function(p) {
-        const props = b || {}
+        const props = Object.assign({}, b)
 
         props.className = [p.className, props.className]
           .filter(Boolean)

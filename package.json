@@ -52,5 +52,5 @@
     "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
     "test": "jest src"
   },
-  "version": "4.0.2"
+  "version": "4.0.3"
 }
