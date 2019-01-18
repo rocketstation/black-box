@@ -11,15 +11,21 @@ module.exports = function(type, b, p) {
 
   for (var i = 0; i < childrenAmount; i++) children[i] = arguments[i + 3]
 
-  return p != null
-    ? React.createElement(ReactFela.FelaComponent, { style: p }, function(p) {
-        const props = Object.assign({}, b)
+  if (p != null) {
+    var bNext = Object.assign({}, b)
+    var pNext = { style: p }
 
-        props.className = [p.className, props.className]
-          .filter(Boolean)
-          .join(' ')
+    if (bNext.hasOwnProperty('key')) {
+      pNext.key = bNext.key
+      delete bNext.key
+    }
 
-        return create(type, props, children)
-      })
-    : create(type, b, children)
+    return React.createElement(ReactFela.FelaComponent, pNext, function(p) {
+      bNext.className = [p.className, bNext.className].filter(Boolean).join(' ')
+
+      return create(type, bNext, children)
+    })
+  }
+
+  return create(type, b, children)
 }
