@@ -1,31 +1,25 @@
-var React = require('react')
-var ReactFela = require('react-fela')
+const React = require('react')
 
-function create(type, props, children) {
-  return React.createElement.apply(void 0, [type, props].concat(children))
-}
+module.exports = function() {
+  var args = []
 
-module.exports = function(type, b, p) {
-  var childrenAmount = arguments.length - 3
-  var children = new Array(childrenAmount > 0 ? childrenAmount : 0)
+  for (var i = 0; i < arguments.length; i++) args.push(arguments[i])
 
-  for (var i = 0; i < childrenAmount; i++) children[i] = arguments[i + 3]
+  switch (true) {
+    case Object.prototype.toString.call(arguments[1]) !== '[object Object]':
+      args.splice(1, 0, null)
+      break
+    case arguments[1].hasOwnProperty('skin'): {
+      var props = Object.assign({}, arguments[1])
 
-  if (p != null) {
-    var bNext = Object.assign({}, b)
-    var pNext = { style: p }
+      props.className = [props.skin, props.className].filter(Boolean).join(' ')
 
-    if (bNext.hasOwnProperty('key')) {
-      pNext.key = bNext.key
-      delete bNext.key
+      delete props.skin
+
+      args.splice(1, 1, props)
+      break
     }
-
-    return React.createElement(ReactFela.FelaComponent, pNext, function(p) {
-      bNext.className = [p.className, bNext.className].filter(Boolean).join(' ')
-
-      return create(type, bNext, children)
-    })
   }
 
-  return create(type, b, children)
+  return React.createElement.apply(void 0, args)
 }

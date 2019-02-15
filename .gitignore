@@ -1,7 +1,5 @@
-# Folders
+.DS_Store
 .vscode
 build
 node_modules
-
-# Files
-.DS_Store
+tmp
