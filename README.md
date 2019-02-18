@@ -31,15 +31,7 @@ ReactDOM.render(
 
 ## Motivation
 
-BlackBox adds extra configuration to `React.createElement`. It is the missing piece of all-in-one components
-
-### Single Syntax & Single File
-
-Black Box allows you to create components using only JS. It allows you to achieve real modularity by separating code by purpose rather than by syntax
-
-### Less Configs & Less Tools
-
-Black Box allows you to remove all eslint, babel, webpack plugins related to CSS & HTML from your project
+BlackBox adds extra configuration to `React.createElement`
 
 ### Why not to use JSX
 
@@ -81,23 +73,9 @@ const MyComponent = ({
       [sortBy]: order,
       ...props,
     },
-    null,
     'Hello World!'
   )
 ```
-
-## API
-
-```javascript
-$(type, b, p, [...children])
-```
-
-creates React element
-
-- **type** - React component
-- **b** - component props
-- **p** - Fela rules
-- **children** - React children
 
 ## License
 
