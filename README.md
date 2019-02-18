@@ -13,13 +13,16 @@ npm i --save @rocketstation/black-box
 ```javascript
 import $ from '@rocketstation/black-box'
 
-const MyComponent = ({ name }) =>
+const MyComponent = ({ name, ...props }) =>
   $(
     'div',
-    { onClick: () => { console.log('test') } },
-    { textAlign: 'center' },
-    'Hello'
-    $('span', null, { fontWeight: 600 }, name }),
+    {
+      onClick: () => { console.log('test') },
+      skin: 'a b c',
+      ...props
+    },
+    'Hello',
+    $('span', name),
     '!'
   )
 
@@ -36,46 +39,6 @@ BlackBox adds extra configuration to `React.createElement`
 ### Why not to use JSX
 
 JSX is not JS. It tries to combine HTML & JS syntax inside JS. It limits JS features & adds new language hacks & overheads. Moreover, JSX requires closing tags
-
-JSX
-
-```javascript
-const MyComponent = ({
-  children,
-  sortBy = 'Name',
-  order = 'ASC',
-  type = 'Table',
-  ...props
-}) => {
-  const Component = Components[type]
-
-  const propsNext = {
-    [sortBy]: order,
-    ...props,
-  }
-
-  return <Component {...props}>Hello World!</Component>
-}
-```
-
-BlackBox
-
-```javascript
-const MyComponent = ({
-  children,
-  sortBy = 'Name',
-  order = 'ASC',
-  type = 'Table',
-}) =>
-  $(
-    Components[type],
-    {
-      [sortBy]: order,
-      ...props,
-    },
-    'Hello World!'
-  )
-```
 
 ## License
 
