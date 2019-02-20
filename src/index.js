@@ -6,7 +6,8 @@ module.exports = function() {
   for (var i = 0; i < arguments.length; i++) args.push(arguments[i])
 
   switch (true) {
-    case Object.prototype.toString.call(arguments[1]) !== '[object Object]':
+    case Object.prototype.toString.call(arguments[1]) !== '[object Object]' ||
+      React.isValidElement(arguments[1]):
       args.splice(1, 0, null)
       break
     case arguments[1].hasOwnProperty('skin'): {
