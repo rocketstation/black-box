@@ -15,9 +15,11 @@
     "Oleksii Pysanko <oleksiipysanko@rstation.io> (https://rstation.io)"
   ],
   "dependencies": {
-    "react": "*"
+    "fela": "10",
+    "react": "16",
+    "react-fela": "10"
   },
-  "description": "adds null instead of props if they are omitted & merges props.skin with props.className",
+  "description": "combines behavior, presentation, structure in one place",
   "devDependencies": {
     "@babel/cli": "7",
     "@babel/core": "7",
@@ -52,5 +54,5 @@
     "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
     "test": "jest src"
   },
-  "version": "5.0.2"
+  "version": "6.0.0"
 }

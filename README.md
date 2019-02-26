@@ -1,6 +1,6 @@
 # Black Box
 
-adds null instead of props if they are omitted & merges props.skin with props.className
+Black Box is a lightweight & powerful tool based on [React](https://github.com/facebook/react) & [Fela](https://github.com/rofrischmann/fela). It combines behavior, presentation, structure in one place
 
 ## Installation
 
@@ -18,7 +18,10 @@ const MyComponent = ({ name, ...props }) =>
     'div',
     {
       onClick: () => { console.log('test') },
-      skin: 'a b c',
+      skin: {
+        backgroundColor: 'black',
+        color: 'white',
+      },
       ...props
     },
     'Hello',
