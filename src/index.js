@@ -38,7 +38,7 @@ module.exports = function() {
                 Object.assign({}, props, theme)
               )
 
-              props.className = props.hasOwnProperty(className)
+              props.className = props.hasOwnProperty('className')
                 ? props.className + ' ' + className
                 : className
 
