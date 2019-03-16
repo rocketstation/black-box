@@ -35,6 +35,14 @@ ReactDOM.render(
 )
 ```
 
+## Reserved Props
+
+`skin` - will be removed from props & passed to Fela.combineRules
+
+`skinConfigs` - will be removed from props & passed to renderer.renderRule
+
+`key` - will be passed to the root component
+
 ## Motivation
 
 BlackBox adds extra configuration to `React.createElement`

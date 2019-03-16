@@ -28,7 +28,16 @@ test('parses skin', () => {
         { renderer: Fela.createRenderer() },
         $(
           'div',
-          { skin: { backgroundColor: 'black', color: 'white' } },
+          {
+            key: 'tst',
+            skin: [
+              ({ isActive }) => ({
+                backgroundColor: isActive ? 'black' : 'white',
+              }),
+              { color: 'white' },
+            ],
+            skinConfigs: { isActive: true },
+          },
           'Hello World!'
         )
       )
