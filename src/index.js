@@ -19,9 +19,6 @@ module.exports = function() {
       var skin = props.skin
       delete props.skin
 
-      var skinConfigs = props.skinConfigs
-      delete props.skinConfigs
-
       var key
       if (props.hasOwnProperty('key')) {
         key = { key: props.key }
@@ -38,7 +35,7 @@ module.exports = function() {
             function(theme) {
               var className = renderer.renderRule(
                 Fela.combineRules.apply(void 0, [].concat(skin)),
-                Object.assign({}, props, skinConfigs, theme)
+                Object.assign({}, props, theme)
               )
 
               props.className = props.hasOwnProperty('className')

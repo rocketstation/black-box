@@ -36,7 +36,6 @@ test('parses skin', () => {
               }),
               { color: 'white' },
             ],
-            skinConfigs: { isActive: true },
           },
           'Hello World!'
         )
