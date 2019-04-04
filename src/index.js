@@ -35,7 +35,7 @@ module.exports = function() {
             function(theme) {
               var className = renderer.renderRule(
                 Fela.combineRules.apply(void 0, [].concat(skin)),
-                Object.assign({}, props, theme)
+                Object.assign({ theme }, props)
               )
 
               props.className = props.hasOwnProperty('className')
