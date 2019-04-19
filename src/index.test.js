@@ -20,7 +20,7 @@ test('passes through args to React.createElement', () => {
   expect(e.children).toEqual(['Hello World!'])
 })
 
-test('parses skin', () => {
+test('parses skin fn', () => {
   const e = renderer
     .create(
       React.createElement(
@@ -30,12 +30,36 @@ test('parses skin', () => {
           'div',
           {
             key: 'tst',
-            skin: [
-              ({ isActive }) => ({
-                backgroundColor: isActive ? 'black' : 'white',
-              }),
-              { color: 'white' },
-            ],
+            skin: ({ isActive }) => ({
+              backgroundColor: isActive ? 'black' : 'white',
+              color: 'white',
+            }),
+          },
+          'Hello World!'
+        )
+      )
+    )
+    .toJSON()
+
+  expect(e.type).toEqual('div')
+  expect(e.props).toEqual({ className: 'a b' })
+  expect(e.children).toEqual(['Hello World!'])
+})
+
+test('parses skin obj', () => {
+  const e = renderer
+    .create(
+      React.createElement(
+        ReactFela.RendererProvider,
+        { renderer: Fela.createRenderer() },
+        $(
+          'div',
+          {
+            key: 'tst',
+            skin: {
+              backgroundColor: 'black',
+              color: 'white',
+            },
           },
           'Hello World!'
         )

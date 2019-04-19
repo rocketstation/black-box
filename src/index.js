@@ -1,4 +1,3 @@
-var Fela = require('fela')
 var React = require('react')
 var ReactFela = require('react-fela')
 
@@ -16,9 +15,6 @@ module.exports = function() {
       var props = Object.assign({}, arguments[1])
       args.splice(1, 1, props)
 
-      var skin = props.skin
-      delete props.skin
-
       var key
       if (props.hasOwnProperty('key')) {
         key = { key: props.key }
@@ -34,13 +30,19 @@ module.exports = function() {
             undefined,
             function(theme) {
               var className = renderer.renderRule(
-                Fela.combineRules.apply(void 0, [].concat(skin)),
+                typeof props.skin === 'function'
+                  ? props.skin
+                  : function() {
+                      return props.skin
+                    },
                 Object.assign({ theme }, props)
               )
 
               props.className = props.hasOwnProperty('className')
                 ? props.className + ' ' + className
                 : className
+
+              delete props.skin
 
               return React.createElement.apply(void 0, args)
             }

@@ -15,7 +15,6 @@
     "Oleksii Pysanko <oleksiipysanko@rstation.io> (https://rstation.io)"
   ],
   "dependencies": {
-    "fela": "10",
     "react": "16",
     "react-fela": "10"
   },
@@ -54,5 +53,5 @@
     "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
     "test": "jest src"
   },
-  "version": "6.2.1"
+  "version": "6.3.0"
 }
