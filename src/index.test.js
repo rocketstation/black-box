@@ -55,6 +55,7 @@ test('parses skin obj', () => {
         $(
           'div',
           {
+            class: 'tst',
             key: 'tst',
             skin: {
               backgroundColor: 'black',
@@ -68,6 +69,6 @@ test('parses skin obj', () => {
     .toJSON()
 
   expect(e.type).toEqual('div')
-  expect(e.props).toEqual({ className: 'a b' })
+  expect(e.props).toEqual({ className: 'a b tst' })
   expect(e.children).toEqual(['Hello World!'])
 })

@@ -39,6 +39,8 @@ ReactDOM.render(
 
 `skin` - will be removed from props & passed to Fela.combineRules
 
+`class` - will be removed from props & added to generated classes
+
 `key` - will be passed to the root component
 
 ## Motivation
