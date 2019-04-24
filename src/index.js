@@ -26,9 +26,9 @@ module.exports = function() {
     }
 
     var className = ''
-    if (props.hasOwnProperty('class')) {
-      className += ' ' + props.class
-      delete props.class
+    if (props.hasOwnProperty('className')) {
+      className = props.className + ' '
+      delete props.className
     }
 
     var skin
@@ -55,7 +55,7 @@ module.exports = function() {
             var config = Object.assign({ theme }, props)
             delete config.children
 
-            props.className = renderer.renderRule(skin, config) + className
+            props.className = className + renderer.renderRule(skin, config)
 
             return React.createElement.apply(void 0, args)
           }

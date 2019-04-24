@@ -29,6 +29,7 @@ test('parses skin fn', () => {
         $(
           'div',
           {
+            className: 'tst',
             key: 'tst',
             skin: ({ isActive }) => ({
               backgroundColor: isActive ? 'black' : 'white',
@@ -42,7 +43,7 @@ test('parses skin fn', () => {
     .toJSON()
 
   expect(e.type).toEqual('div')
-  expect(e.props).toEqual({ className: 'a b' })
+  expect(e.props).toEqual({ className: 'tst a b' })
   expect(e.children).toEqual(['Hello World!'])
 })
 
@@ -55,7 +56,7 @@ test('parses skin obj', () => {
         $(
           'div',
           {
-            class: 'tst',
+            className: 'tst',
             key: 'tst',
             skin: {
               backgroundColor: 'black',
@@ -69,6 +70,6 @@ test('parses skin obj', () => {
     .toJSON()
 
   expect(e.type).toEqual('div')
-  expect(e.props).toEqual({ className: 'a b tst' })
+  expect(e.props).toEqual({ className: 'tst a b' })
   expect(e.children).toEqual(['Hello World!'])
 })
