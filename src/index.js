@@ -21,6 +21,20 @@ module.exports = function() {
         delete props.key
       }
 
+      var skin
+
+      if (typeof props.skin === 'function') {
+        skin = props.skin
+      } else {
+        var next = Object.assign({}, props.skin)
+
+        skin = function() {
+          return next
+        }
+      }
+
+      delete props.skin
+
       return React.createElement(
         ReactFela.RendererContext.Consumer,
         key,
@@ -30,19 +44,13 @@ module.exports = function() {
             undefined,
             function(theme) {
               var className = renderer.renderRule(
-                typeof props.skin === 'function'
-                  ? props.skin
-                  : function() {
-                      return props.skin
-                    },
+                skin,
                 Object.assign({ theme }, props)
               )
 
               props.className = props.hasOwnProperty('className')
                 ? props.className + ' ' + className
                 : className
-
-              delete props.skin
 
               return React.createElement.apply(void 0, args)
             }
