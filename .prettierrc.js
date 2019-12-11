@@ -2,5 +2,6 @@ module.exports = {
   arrowParens: 'always',
   semi: false,
   singleQuote: true,
-  trailingComma: 'es5',
+  trailingComma: 'all',
+  quoteProps: 'consistent'
 }

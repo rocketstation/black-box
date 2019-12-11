@@ -31,14 +31,16 @@ test('parses skin fn', () => {
           {
             className: 'tst',
             key: 'tst',
-            skin: ({ isActive }) => ({
-              backgroundColor: isActive ? 'black' : 'white',
-              color: 'white',
-            }),
+            skin: ({ isActive }) => {
+              return {
+                backgroundColor: isActive ? 'black' : 'white',
+                color: 'white',
+              }
+            },
           },
-          'Hello World!'
-        )
-      )
+          'Hello World!',
+        ),
+      ),
     )
     .toJSON()
 
@@ -63,9 +65,9 @@ test('parses skin obj', () => {
               color: 'white',
             },
           },
-          'Hello World!'
-        )
-      )
+          'Hello World!',
+        ),
+      ),
     )
     .toJSON()
 

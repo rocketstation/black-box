@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "react": "16",
-    "react-fela": "10"
+    "react-fela": "11"
   },
   "description": "combines behavior, presentation, structure in one place",
   "devDependencies": {
@@ -25,13 +25,13 @@
     "@babel/preset-env": "7",
     "babel-eslint": "10",
     "babel-preset-minify": "0.5",
-    "cross-env": "5",
-    "eslint": "5",
-    "eslint-config-prettier": "4",
-    "eslint-config-standard": "12",
+    "cross-env": "6",
+    "eslint": "6",
+    "eslint-config-prettier": "6",
+    "eslint-config-standard": "14",
     "eslint-plugin-import": "2",
-    "eslint-plugin-jest": "22",
-    "eslint-plugin-node": "8",
+    "eslint-plugin-jest": "23",
+    "eslint-plugin-node": "10",
     "eslint-plugin-prettier": "3",
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
@@ -53,5 +53,5 @@
     "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
     "test": "jest src"
   },
-  "version": "6.6.0"
+  "version": "6.7.0"
 }

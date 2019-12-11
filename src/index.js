@@ -58,9 +58,9 @@ module.exports = function() {
             props.className = className + renderer.renderRule(skin, config)
 
             return React.createElement.apply(void 0, args)
-          }
+          },
         )
-      }
+      },
     )
   }
 
