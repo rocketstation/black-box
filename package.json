@@ -25,19 +25,16 @@
     "@babel/preset-env": "7",
     "babel-eslint": "10",
     "babel-preset-minify": "0.5",
-    "cross-env": "6",
-    "eslint": "6",
+    "cross-env": "7",
+    "eslint": "7",
     "eslint-config-prettier": "6",
     "eslint-config-standard": "14",
     "eslint-plugin-import": "2",
-    "eslint-plugin-jest": "23",
-    "eslint-plugin-node": "10",
+    "eslint-plugin-node": "11",
     "eslint-plugin-prettier": "3",
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
-    "jest": "24",
-    "prettier": "1",
-    "react-test-renderer": "16"
+    "prettier": "2"
   },
   "files": [
     "build"
@@ -50,8 +47,7 @@
     "url": "git+https://github.com/rocketstation/black-box.git"
   },
   "scripts": {
-    "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build --ignore src/**/*.test.js",
-    "test": "jest src"
+    "build": "rm -rf build && cross-env NODE_ENV=production babel src -d build"
   },
-  "version": "6.7.0"
+  "version": "7.0.0"
 }

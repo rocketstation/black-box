@@ -37,7 +37,7 @@ ReactDOM.render(
 
 ## Reserved Props
 
-`skin` - will be removed from props & passed to Fela.combineRules
+`skin` - if it is object or function, it will be removed from props & passed to Fela.combineRules
 
 `key` - will be passed to the root component
 
